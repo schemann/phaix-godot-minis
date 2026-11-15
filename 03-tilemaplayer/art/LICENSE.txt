@@ -1,0 +1,10 @@
+The art in this folder comes from 16x16 DungeonTileset II v1.7 by 0x72 (Robert):
+https://0x72.itch.io/dungeontileset-ii
+
+Licence: CC0 1.0 Universal, as stated on that page ("You can use this tileset for
+whatever you like (CC-0)"; asset license field: "Creative Commons Zero v1.0 Universal").
+The page was read on 2026-11-02 in the web.archive.org snapshot of 2025-12-31, because
+the live page refused the reader. The pack's zip carries no licence text of its own.
+
+The files were cut from the pack and scaled 4x with nearest neighbour, except in mini 07: it has no
+camera and carries twice the standard zoom in its art, so its files are scaled 16x.
