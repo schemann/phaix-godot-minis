@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Texture2D" path="res://art/room_gate.png" id="1_room"]
+[ext_resource type="Texture2D" path="res://art/arch.png" id="2_arch"]
+[ext_resource type="Texture2D" path="res://art/walls_gate.png" id="3_walls"]
+
+[sub_resource type="RectangleShape2D" id="Shape_0"]
+size = Vector2(560, 76)
+
+[sub_resource type="RectangleShape2D" id="Shape_1"]
+size = Vector2(544, 76)
+
+[sub_resource type="RectangleShape2D" id="Shape_2"]
+size = Vector2(1216, 348)
+
+[sub_resource type="RectangleShape2D" id="Shape_3"]
+size = Vector2(1216, 64)
+
+[sub_resource type="RectangleShape2D" id="Shape_4"]
+size = Vector2(44, 896)
+
+[sub_resource type="RectangleShape2D" id="Shape_5"]
+size = Vector2(44, 896)
+
+[node name="Room" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Picture" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("1_room")
+
+[node name="WallFront" type="Sprite2D" parent="."]
+position = Vector2(0, 20)
+texture = ExtResource("3_walls")
+offset = Vector2(0, -20)
+
+[node name="Arch" type="Sprite2D" parent="."]
+position = Vector2(0, 20)
+texture = ExtResource("2_arch")
+offset = Vector2(0, -90)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="ShapeWallLeft" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-316, 26)
+shape = SubResource("Shape_0")
+debug_color = Color(0, 0.6, 0.7, 0.03)
+
+[node name="ShapeWallRight" type="CollisionShape2D" parent="Walls"]
+position = Vector2(324, 26)
+shape = SubResource("Shape_1")
+debug_color = Color(0, 0.6, 0.7, 0.03)
+
+[node name="ShapeTop" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, -274)
+shape = SubResource("Shape_2")
+debug_color = Color(0, 0.6, 0.7, 0.03)
+
+[node name="ShapeBottom" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, 416)
+shape = SubResource("Shape_3")
+debug_color = Color(0, 0.6, 0.7, 0.03)
+
+[node name="ShapeLeft" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-618, 0)
+shape = SubResource("Shape_4")
+debug_color = Color(0, 0.6, 0.7, 0.03)
+
+[node name="ShapeRight" type="CollisionShape2D" parent="Walls"]
+position = Vector2(618, 0)
+shape = SubResource("Shape_5")
+debug_color = Color(0, 0.6, 0.7, 0.03)
