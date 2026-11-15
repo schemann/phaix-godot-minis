@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Texture2D" path="res://art/room_tall.png" id="1_room"]
+[ext_resource type="PackedScene" path="res://short/pickup_bug.tscn" id="2_pickup"]
+[ext_resource type="Resource" path="res://potion.tres" id="3_potion"]
+[ext_resource type="PackedScene" path="res://player.tscn" id="4_player"]
+[ext_resource type="Script" path="res://short/shared.gd" id="5_script"]
+
+[node name="Shared" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("5_script")
+
+[node name="Floor" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("1_room")
+
+[node name="PickupA" parent="." instance=ExtResource("2_pickup")]
+position = Vector2(-120, 0)
+item = ExtResource("3_potion")
+
+[node name="PickupB" parent="." instance=ExtResource("2_pickup")]
+position = Vector2(0, 0)
+item = ExtResource("3_potion")
+
+[node name="PickupC" parent="." instance=ExtResource("2_pickup")]
+position = Vector2(120, 0)
+item = ExtResource("3_potion")
+
+[node name="Player" parent="." instance=ExtResource("4_player")]
+position = Vector2(150, 244)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -30)
+zoom = Vector2(3, 3)

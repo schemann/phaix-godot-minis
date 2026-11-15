@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://short/pickup_fix.gd" id="1_script"]
+
+[sub_resource type="RectangleShape2D" id="Shape_0"]
+size = Vector2(56, 32)
+
+[node name="Pickup" type="Area2D"]
+script = ExtResource("1_script")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("Shape_0")
+
+[node name="Hud" type="CanvasLayer" parent="."]
+
+[node name="File" type="Label" parent="Hud"]
+offset_left = -170.0
+offset_top = -392.0
+offset_right = 170.0
+offset_bottom = -346.0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 34
+text = "file"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Hud"]
+offset_left = -170.0
+offset_top = -346.0
+offset_right = 170.0
+offset_bottom = -194.0
+theme_override_constants/outline_size = 8
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 44
+text = "Item"
+horizontal_alignment = 1

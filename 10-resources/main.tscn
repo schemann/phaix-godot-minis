@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="PackedScene" path="res://room.tscn" id="1_room"]
+[ext_resource type="PackedScene" path="res://pickup.tscn" id="2_pickup"]
+[ext_resource type="Resource" path="res://potion.tres" id="3_potion"]
+[ext_resource type="Resource" path="res://sword.tres" id="4_sword"]
+[ext_resource type="Resource" path="res://staff.tres" id="5_staff"]
+[ext_resource type="PackedScene" path="res://player.tscn" id="6_player"]
+
+[node name="Main" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Room" parent="." instance=ExtResource("1_room")]
+
+[node name="Player" parent="." instance=ExtResource("6_player")]
+position = Vector2(-250, 118)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="Pickup" parent="." instance=ExtResource("2_pickup")]
+position = Vector2(-170, 40)
+item = ExtResource("3_potion")
+
+[node name="Pickup2" parent="." instance=ExtResource("2_pickup")]
+position = Vector2(0, 40)
+item = ExtResource("4_sword")
+
+[node name="Pickup3" parent="." instance=ExtResource("2_pickup")]
+position = Vector2(170, 40)
+item = ExtResource("5_staff")
