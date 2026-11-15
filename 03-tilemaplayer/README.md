@@ -2,6 +2,11 @@
 
 The project of the Phaix mini tutorial "How to Use TileMapLayer in Godot 4". Open `project.godot` in Godot 4.7 and press F5.
 
+## Controls
+
+- The arrow keys move the knight; the d-pad or the left stick of a gamepad works as well.
+- Enter or Space places a wall tile two cells to the right of the knight, where that cell is floor.
+
 `short/ghost_walls.tscn` is the scene of the Short: the same level, switched between its Tile Set and a copy whose physics layer is removed, so the player walks through the walls the way it does before step one.
 
 Code and scenes are MIT, see `LICENSE` in the root of the repo.
