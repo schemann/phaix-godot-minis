@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="PackedScene" path="res://room.tscn" id="1_room"]
+[ext_resource type="PackedScene" path="res://player.tscn" id="2_player"]
+[ext_resource type="Script" path="res://short/gun_on_gun.gd" id="3_script"]
+[ext_resource type="PackedScene" path="res://short/bullet.tscn" id="4_bullet"]
+[ext_resource type="Script" path="res://short/readout.gd" id="5_readout"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Room" parent="." instance=ExtResource("1_room")]
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+
+[node name="Gun" parent="Player" index="1"]
+script = ExtResource("3_script")
+bullet_scene = ExtResource("4_bullet")
+
+[node name="Readout" type="CanvasLayer" parent="."]
+script = ExtResource("5_readout")

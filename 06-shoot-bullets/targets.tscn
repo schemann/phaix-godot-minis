@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://target.tscn" id="1_target"]
+
+[node name="Targets" type="Node2D"]
+
+[node name="Target1" parent="." instance=ExtResource("1_target")]
+position = Vector2(240, -72)
+
+[node name="Target2" parent="." instance=ExtResource("1_target")]
+position = Vector2(176, 84)
+
+[node name="Target3" parent="." instance=ExtResource("1_target")]
+position = Vector2(24, -92)
+
+[node name="Target4" parent="." instance=ExtResource("1_target")]
+position = Vector2(-232, -68)
+
+[node name="Target5" parent="." instance=ExtResource("1_target")]
+position = Vector2(-168, 80)
+
+[node name="Target6" parent="." instance=ExtResource("1_target")]
+position = Vector2(24, 92)
