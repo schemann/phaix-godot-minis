@@ -2,6 +2,10 @@
 
 The project of the Phaix mini tutorial "How to Animate a Sprite in Godot 4". Open `project.godot` in Godot 4.7 and press F5.
 
+## Controls
+
+- The left and right arrow keys walk the knight; the d-pad or the left stick of a gamepad works as well.
+
 Code and scenes are MIT, see `LICENSE` in the root of the repo.
 
 The art is 16x16 DungeonTileset II by 0x72 (https://0x72.itch.io/dungeontileset-ii), CC0, see `art/LICENSE.txt`. The camera has limits in `player.tscn`, so the picture stops at the room's walls and never shows outside the room.
