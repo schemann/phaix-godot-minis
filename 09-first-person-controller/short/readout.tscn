@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://short/readout.gd" id="1_readout"]
+
+[node name="Readout" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_readout")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://world.tscn" id="1_world"]
+[ext_resource type="PackedScene" path="res://short/readout.tscn" id="2_readout"]
+
+[node name="Clamp" instance=ExtResource("1_world")]
+
+[node name="Readout" parent="." instance=ExtResource("2_readout")]
