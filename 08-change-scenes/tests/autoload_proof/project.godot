@@ -1,0 +1,15 @@
+; Engine configuration file of the autoload proof (a project of its own inside tests/, so Godot's parent project skips this folder).
+; The lesson's project has no autoload; this one registers exactly one, `Score`, to prove what the last step says.
+
+config_version=5
+
+[application]
+
+config/name="Phaix Godot Mini 08 - autoload proof"
+config/features=PackedStringArray("4.7")
+config/use_custom_user_dir=true
+config/custom_user_dir_name="phaix-godot-mini-08-autoload-proof"
+
+[autoload]
+
+Score="*res://score.gd"

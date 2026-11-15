@@ -1,0 +1,101 @@
+[gd_scene load_steps=18 format=3]
+
+[ext_resource type="Script" path="res://short/hall.gd" id="1_hall"]
+[ext_resource type="Texture2D" path="res://art/room_two.png" id="2_room"]
+[ext_resource type="Texture2D" path="res://art/front_two.png" id="3_front"]
+[ext_resource type="Texture2D" path="res://art/arch.png" id="4_arch"]
+[ext_resource type="PackedScene" path="res://door.tscn" id="5_door"]
+[ext_resource type="Script" path="res://short/probe.gd" id="6_probe"]
+[ext_resource type="Script" path="res://short/zone_mark.gd" id="7_zone"]
+[ext_resource type="PackedScene" path="res://player.tscn" id="8_player"]
+
+[sub_resource type="RectangleShape2D" id="Shape_0"]
+size = Vector2(432, 76)
+
+[sub_resource type="RectangleShape2D" id="Shape_1"]
+size = Vector2(672, 76)
+
+[sub_resource type="RectangleShape2D" id="Shape_2"]
+size = Vector2(1216, 256)
+
+[sub_resource type="RectangleShape2D" id="Shape_3"]
+size = Vector2(1216, 64)
+
+[sub_resource type="RectangleShape2D" id="Shape_4"]
+size = Vector2(44, 640)
+
+[sub_resource type="RectangleShape2D" id="Shape_5"]
+size = Vector2(44, 640)
+
+[node name="RoomTwo" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_hall")
+console_rect = Rect2(437.33, 197, 405.33, 98)
+console_font = 11
+
+[node name="Picture" type="Sprite2D" parent="."]
+modulate = Color(0.66, 0.82, 1.22, 1)
+z_index = -1
+texture = ExtResource("2_room")
+
+[node name="WallFront" type="Sprite2D" parent="."]
+modulate = Color(0.66, 0.82, 1.22, 1)
+position = Vector2(0, 20)
+texture = ExtResource("3_front")
+offset = Vector2(0, -20)
+
+[node name="Arch" type="Sprite2D" parent="."]
+modulate = Color(0.66, 0.82, 1.22, 1)
+position = Vector2(-128, 20)
+texture = ExtResource("4_arch")
+offset = Vector2(0, -90)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="ShapeWallLeft" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-380, 26)
+shape = SubResource("Shape_0")
+debug_color = Color(0, 0.6, 0.7, 0.03)
+
+[node name="ShapeWallRight" type="CollisionShape2D" parent="Walls"]
+position = Vector2(260, 26)
+shape = SubResource("Shape_1")
+debug_color = Color(0, 0.6, 0.7, 0.03)
+
+[node name="ShapeTop" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, -172)
+shape = SubResource("Shape_2")
+debug_color = Color(0, 0.6, 0.7, 0.03)
+
+[node name="ShapeBottom" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, 288)
+shape = SubResource("Shape_3")
+debug_color = Color(0, 0.6, 0.7, 0.03)
+
+[node name="ShapeLeft" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-618, 0)
+shape = SubResource("Shape_4")
+debug_color = Color(0, 0.6, 0.7, 0.03)
+
+[node name="ShapeRight" type="CollisionShape2D" parent="Walls"]
+position = Vector2(618, 0)
+shape = SubResource("Shape_5")
+debug_color = Color(0, 0.6, 0.7, 0.03)
+
+[node name="Door" parent="." instance=ExtResource("5_door")]
+position = Vector2(-120, -20)
+target = "res://short/fix_one.tscn"
+
+[node name="Probe" type="Node" parent="."]
+script = ExtResource("6_probe")
+
+[node name="ZoneMark" type="Node2D" parent="."]
+z_index = 5
+script = ExtResource("7_zone")
+
+[node name="Player" parent="." instance=ExtResource("8_player")]
+position = Vector2(-72, 86)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-120, -41)
+zoom = Vector2(2, 2)

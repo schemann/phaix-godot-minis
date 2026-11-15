@@ -1,0 +1,85 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="Texture2D" path="res://art/room_two.png" id="1_room"]
+[ext_resource type="Texture2D" path="res://art/front_two.png" id="2_front"]
+[ext_resource type="Texture2D" path="res://art/arch.png" id="3_arch"]
+[ext_resource type="PackedScene" path="res://door.tscn" id="4_door"]
+[ext_resource type="PackedScene" path="res://player.tscn" id="5_player"]
+
+[sub_resource type="RectangleShape2D" id="Shape_0"]
+size = Vector2(432, 76)
+
+[sub_resource type="RectangleShape2D" id="Shape_1"]
+size = Vector2(672, 76)
+
+[sub_resource type="RectangleShape2D" id="Shape_2"]
+size = Vector2(1216, 256)
+
+[sub_resource type="RectangleShape2D" id="Shape_3"]
+size = Vector2(1216, 64)
+
+[sub_resource type="RectangleShape2D" id="Shape_4"]
+size = Vector2(44, 640)
+
+[sub_resource type="RectangleShape2D" id="Shape_5"]
+size = Vector2(44, 640)
+
+[node name="RoomTwo" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Picture" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("1_room")
+
+[node name="WallFront" type="Sprite2D" parent="."]
+position = Vector2(0, 20)
+texture = ExtResource("2_front")
+offset = Vector2(0, -20)
+
+[node name="Arch" type="Sprite2D" parent="."]
+position = Vector2(-128, 20)
+texture = ExtResource("3_arch")
+offset = Vector2(0, -90)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="ShapeWallLeft" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-380, 26)
+shape = SubResource("Shape_0")
+debug_color = Color(0, 0.6, 0.7, 0.03)
+
+[node name="ShapeWallRight" type="CollisionShape2D" parent="Walls"]
+position = Vector2(260, 26)
+shape = SubResource("Shape_1")
+debug_color = Color(0, 0.6, 0.7, 0.03)
+
+[node name="ShapeTop" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, -172)
+shape = SubResource("Shape_2")
+debug_color = Color(0, 0.6, 0.7, 0.03)
+
+[node name="ShapeBottom" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, 288)
+shape = SubResource("Shape_3")
+debug_color = Color(0, 0.6, 0.7, 0.03)
+
+[node name="ShapeLeft" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-618, 0)
+shape = SubResource("Shape_4")
+debug_color = Color(0, 0.6, 0.7, 0.03)
+
+[node name="ShapeRight" type="CollisionShape2D" parent="Walls"]
+position = Vector2(618, 0)
+shape = SubResource("Shape_5")
+debug_color = Color(0, 0.6, 0.7, 0.03)
+
+[node name="Door" parent="." instance=ExtResource("4_door")]
+position = Vector2(-120, -20)
+target = "res://room_one.tscn"
+
+[node name="Player" parent="." instance=ExtResource("5_player")]
+position = Vector2(200, 116)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 12)
+zoom = Vector2(2, 2)
