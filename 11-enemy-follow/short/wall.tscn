@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Texture2D" path="res://art/room_wall.png" id="1_room"]
+[ext_resource type="PackedScene" path="res://player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://enemy.tscn" id="3_enemy"]
+
+[sub_resource type="RectangleShape2D" id="Shape_0"]
+size = Vector2(768, 64)
+
+[sub_resource type="RectangleShape2D" id="Shape_1"]
+size = Vector2(768, 64)
+
+[sub_resource type="RectangleShape2D" id="Shape_2"]
+size = Vector2(44, 448)
+
+[sub_resource type="RectangleShape2D" id="Shape_3"]
+size = Vector2(44, 448)
+
+[sub_resource type="RectangleShape2D" id="Shape_4"]
+size = Vector2(24, 192)
+
+[node name="Wall" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Room" type="Node2D" parent="."]
+
+[node name="Picture" type="Sprite2D" parent="Room"]
+z_index = -1
+texture = ExtResource("1_room")
+
+[node name="Walls" type="StaticBody2D" parent="Room"]
+
+[node name="ShapeTop" type="CollisionShape2D" parent="Room/Walls"]
+position = Vector2(0, -192)
+shape = SubResource("Shape_0")
+
+[node name="ShapeBottom" type="CollisionShape2D" parent="Room/Walls"]
+position = Vector2(0, 192)
+shape = SubResource("Shape_1")
+
+[node name="ShapeLeft" type="CollisionShape2D" parent="Room/Walls"]
+position = Vector2(-362, 0)
+shape = SubResource("Shape_2")
+
+[node name="ShapeRight" type="CollisionShape2D" parent="Room/Walls"]
+position = Vector2(362, 0)
+shape = SubResource("Shape_3")
+
+[node name="ShapeFree" type="CollisionShape2D" parent="Room/Walls"]
+position = Vector2(32, -64)
+shape = SubResource("Shape_4")
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(200, -60)
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_enemy")]
+position = Vector2(-240, -60)
+target = NodePath("../Player")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
